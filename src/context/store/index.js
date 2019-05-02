@@ -1,4 +1,4 @@
-import models from "./models";
+import models from './models';
 
 export const initialState = Object.keys(models).reduce(
   (acc, model) => ({

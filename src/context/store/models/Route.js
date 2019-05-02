@@ -1,6 +1,6 @@
 export const route = {
   initialState: {
-    active: window.location.pathname.split("/")[1] || "dashboard"
+    active: window.location.pathname.split('/')[1] || 'dashboard'
   },
   reducers: {
     setActive: (state, { active }) => {

@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import classes from "./Settings.module.scss";
-import { GlobalContext } from "../../context";
+import React, { useContext } from 'react';
+import classes from './Settings.module.scss';
+import { GlobalContext } from '../../context';
 
 export const Settings = _ => {
   const {
@@ -19,19 +19,11 @@ export const Settings = _ => {
         <div className={classes.settingHeader}>Settings</div>
         <div className={classes.formItem}>
           <label>First Name</label>
-          <input
-            type="text"
-            value={firstName}
-            onChange={e => setProfile({ firstName: e.target.value, lastName })}
-          />
+          <input type="text" value={firstName} onChange={e => setProfile({ firstName: e.target.value, lastName })} />
         </div>
         <div className={classes.formItem}>
           <label>Last Name</label>
-          <input
-            type="text"
-            value={lastName}
-            onChange={e => setProfile({ lastName: e.target.value, firstName })}
-          />
+          <input type="text" value={lastName} onChange={e => setProfile({ lastName: e.target.value, firstName })} />
         </div>
       </div>
     </div>

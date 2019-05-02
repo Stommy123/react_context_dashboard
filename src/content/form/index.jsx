@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import classes from "./Form.module.scss";
-import { GlobalContext } from "../../context";
+import React, { useContext } from 'react';
+import classes from './Form.module.scss';
+import { GlobalContext } from '../../context';
 
 export const Form = _ => {
   const { dispatch } = useContext(GlobalContext);
-  const onClick = e =>
-    dispatch.snackBar.setMessage({ message: e.target.value });
+  const onClick = e => dispatch.snackBar.setMessage({ message: e.target.value });
   return (
     <div className={classes.root}>
       <div className={classes.header}>Form</div>
@@ -31,10 +30,10 @@ export const Form = _ => {
         <div className={classes.formItem}>
           <label>Technician</label>
           <select>
-            <option value="bob">Bob McBobly</option>
-            <option value="alejandro">Alejandro Liamson</option>
-            <option value="george">George McGeorgeface</option>
-            <option value="alex">Alex Alexa</option>
+            <option value="Andy">Andy Weiss</option>
+            <option value="Don">Don Moorhouse</option>
+            <option value="Angel">Angel Vanegas</option>
+            <option value="Bria">Bria Mitchell</option>
           </select>
         </div>
         <div className={classes.formItem}>
@@ -56,10 +55,10 @@ export const Form = _ => {
         <div className={classes.formItem}>
           <label>Customer Rep</label>
           <select>
-            <option value="alex">Alex Alexa</option>
-            <option value="alejandro">Alejandro Liamson</option>
-            <option value="bob">Bob McBobly</option>
-            <option value="george">George McGeorgeface</option>
+            <option value="Andy">Andy Weiss</option>
+            <option value="Don">Don Moorhouse</option>
+            <option value="Angel">Angel Vanegas</option>
+            <option value="Bria">Bria Mitchell</option>
           </select>
         </div>
         <div className={classes.formItem}>
