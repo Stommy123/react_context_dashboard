@@ -25,8 +25,31 @@ const initialState = {
 
 export const Form = _ => {
   const [state, setState] = useState(initialState);
+  const {
+    billable,
+    serviceType,
+    serviceLocation,
+    serviceDate,
+    resources,
+    technician,
+    customerName,
+    newCustomer,
+    customerNumber,
+    customerRep,
+    customerDescription,
+    additionalNotes,
+    onboardDate,
+    callbackReceived,
+    accountDescription,
+    accountNumber,
+    accountStatus,
+    accountDate
+  } = state;
   const { dispatch } = useContext(GlobalContext);
-  const handleInputChange = field => e => setState(state => ({ ...state, [field]: e.target.value }));
+  const handleInputChange = field => e => {
+    const value = e.target.value;
+    setState(state => ({ ...state, [field]: value }));
+  };
   const handleSubmit = e => {
     dispatch.snackBar.setMessage({ message: e.target.value });
     dispatch.order.setOrder(state);
@@ -39,23 +62,28 @@ export const Form = _ => {
         <div className={classes.formName}>Service Request Form</div>
         <div className={classes.formItem}>
           <label>Bill For Service?</label>
-          <input onChange={handleInputChange('billable')} className={classes.checkBox} type="checkbox" />
+          <input
+            value={billable}
+            onChange={handleInputChange('billable')}
+            className={classes.checkBox}
+            type="checkbox"
+          />
         </div>
         <div className={classes.formItem}>
           <label>Service Type</label>
-          <input onChange={handleInputChange('serviceType')} type="text" />
+          <input value={serviceType} onChange={handleInputChange('serviceType')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>Service Location</label>
-          <input onChange={handleInputChange('serviceLocation')} type="text" />
+          <input value={serviceLocation} onChange={handleInputChange('serviceLocation')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>Resources Requested</label>
-          <input onChange={handleInputChange('resources')} type="text" />
+          <input value={resources} onChange={handleInputChange('resources')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>Technician</label>
-          <select onChange={handleInputChange('technician')}>
+          <select value={technician} onChange={handleInputChange('technician')}>
             <option value="Andy">Andy Weiss</option>
             <option value="Don">Don Moorhouse</option>
             <option value="Angel">Angel Vanegas</option>
@@ -65,23 +93,28 @@ export const Form = _ => {
         </div>
         <div className={classes.formItem}>
           <label>Service Date</label>
-          <input onChange={handleInputChange('serviceDate')} type="date" />
+          <input value={serviceDate} onChange={handleInputChange('serviceDate')} type="date" />
         </div>
         <div className={classes.formItem}>
           <label>Customer Name</label>
-          <input onChange={handleInputChange('customerName')} type="text" />
+          <input value={customerName} onChange={handleInputChange('customerName')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>New Customer?</label>
-          <input onChange={handleInputChange('newCustomer')} className={classes.checkBox} type="checkbox" />
+          <input
+            value={newCustomer}
+            onChange={handleInputChange('newCustomer')}
+            className={classes.checkBox}
+            type="checkbox"
+          />
         </div>
         <div className={classes.formItem}>
           <label>Customer Number</label>
-          <input onChange={handleInputChange('customerNumber')} type="text" />
+          <input value={customerNumber} onChange={handleInputChange('customerNumber')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>Customer Rep</label>
-          <select onChange={handleInputChange('customerRep')}>
+          <select value={customerRep} onChange={handleInputChange('customerRep')}>
             <option value="Andy">Andy Weiss</option>
             <option value="Don">Don Moorhouse</option>
             <option value="Angel">Angel Vanegas</option>
@@ -90,31 +123,36 @@ export const Form = _ => {
         </div>
         <div className={classes.formItem}>
           <label>Customer Description</label>
-          <input onChange={handleInputChange('customerDescription')} type="text" />
+          <input value={customerDescription} onChange={handleInputChange('customerDescription')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>Additional Notes</label>
-          <input onChange={handleInputChange('additionalNotes')} type="text" />
+          <input value={additionalNotes} onChange={handleInputChange('additionalNotes')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>On-board Date</label>
-          <input onChange={handleInputChange('onboardDate')} type="date" />
+          <input value={onboardDate} onChange={handleInputChange('onboardDate')} type="date" />
         </div>
         <div className={classes.formItem}>
           <label>Callback Received?</label>
-          <input onChange={handleInputChange('callbackReceived')} className={classes.checkBox} type="checkbox" />
+          <input
+            value={callbackReceived}
+            onChange={handleInputChange('callbackReceived')}
+            className={classes.checkBox}
+            type="checkbox"
+          />
         </div>
         <div className={classes.formItem}>
           <label>Account Description</label>
-          <input onChange={handleInputChange('accountDescription')} type="text" />
+          <input value={accountDescription} onChange={handleInputChange('accountDescription')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>Account Number</label>
-          <input onChange={handleInputChange('accountNumber')} type="text" />
+          <input value={accountNumber} onChange={handleInputChange('accountNumber')} type="text" />
         </div>
         <div className={classes.formItem}>
           <label>Account Status</label>
-          <select onChange={handleInputChange('accountStatus')}>
+          <select value={accountStatus} onChange={handleInputChange('accountStatus')}>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
             <option value="probation">Probation</option>
@@ -123,7 +161,7 @@ export const Form = _ => {
         </div>
         <div className={classes.formItem}>
           <label>Account Date</label>
-          <input onChange={handleInputChange('accountDate')} type="date" />
+          <input value={accountDate} onChange={handleInputChange('accountDate')} type="date" />
         </div>
         <div className={classes.button}>
           <button onClick={handleSubmit} value="Submission Success">
