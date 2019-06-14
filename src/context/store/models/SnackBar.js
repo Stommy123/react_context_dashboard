@@ -11,7 +11,7 @@ export const snackBar = {
     setRemove: (state, { remove }) => ({
       ...state,
       remove,
-      ...(remove ? Object() : { message: String() })
+      ...(remove ? {} : { message: String() })
     })
   }
 };
